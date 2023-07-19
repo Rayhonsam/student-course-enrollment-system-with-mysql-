@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	</head>
+	<body>
+       <div ng-app="" ng-init="price=12;quan=103;names=['samo','rayhon'],obj=[{'name':'samo','reg':'1234'}]">
+		<input type="text" name="price" ng-model="price"/>
+		<h1>{{price*quan}}</h1>
+		<ul>
+			<li ng-repeat="x in names">
+                {{x}}
+			</li>
+		</ul>
+		<ul>
+			<li ng-repeat="x in obj">
+				{{x.name}}
+			</li>
+		</ul>
+	   </div>
+	</body>
+</html>

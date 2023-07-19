@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Enrollment</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Course Enrollment</h1>
+    <form method="POST" action="enrollment.php">
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" name="username" required/>
+        </div>
+        <div class="form-group">
+            <label>Mail:</label>
+            <input type="text" name="password" required/>
+        </div>
+        <div id="output"></div>
+        <input type="submit" value="submit" name="enroll"/>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const doc = document.getElementById("output");
+      const info = [
+        {
+          subject: "info_sec",
+          slot: ["slot a", "slot b"],
+        },
+        {
+          subject: "web_tech",
+          slot: ["slot a", "slot b"],
+        },
+        {
+          subject: "data_mining",
+          slot: ["slot a", "slot b"],
+        },
+      ];
+      let content = '';
+      info.forEach((element, index) => {
+        content += `
+          <div class="form-group">
+            <label>${element.subject}</label>
+            <select id=${index} name=${element.subject}>
+              <option name=${element.slot[0]}>${element.slot[0]}</option>
+              <option name=${element.slot[1]}>${element.slot[1]}</option>
+            </select>
+          </div>
+        `;
+      });
+      doc.innerHTML = content;
+    });
+  </script>
+</body>
+
+</html>
